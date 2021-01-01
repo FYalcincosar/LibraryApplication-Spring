@@ -14,7 +14,7 @@ public class PublisherService {
 	@Autowired
 	private PublisherRepository repository;
 	
-	public void getPublisherIfRecordExist(Publisher pub){
+	public void setPublisherIfRecordExist(Publisher pub){
 		if(pub.getPublisherName()!=null && !repository.search(pub.getPublisherName()).isEmpty()) {
 			
 			System.out.println("debug: "+repository.search(pub.getPublisherName()).get(0).getId());

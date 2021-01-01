@@ -15,7 +15,7 @@ public class AuthorService {
 	
 	
 	
-	public void getAuthorIfRecordExist(Author aut){
+	public void setAuthorIfRecordExist(Author aut){
 		if(aut.getAuthorName()!=null && !repository.search(aut.getAuthorName()).isEmpty()) {
 			
 			aut.setId(repository.search(aut.getAuthorName()).get(0).getId()); 

@@ -38,9 +38,9 @@ public class PublisherController {
 	@PostMapping("/publishers/add")
 	public String addPublisher(Publisher publisher) {
 		
-		service.getPublisherIfRecordExist(publisher);
+		service.setPublisherIfRecordExist(publisher);
 		
-		System.out.println("pub test: "+publisher.getId());
+		
 		
 		service.save(publisher);
 		

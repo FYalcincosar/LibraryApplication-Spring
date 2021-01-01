@@ -34,11 +34,11 @@ public class BookService {
 	}
 	public void checkAndSave(Book book) {
 		
-		authorService.getAuthorIfRecordExist(book.getAuthor());
+		authorService.setAuthorIfRecordExist(book.getAuthor());
 		
 		authorService.save(book.getAuthor());
 		
-		publisherservice.getPublisherIfRecordExist(book.getPublisher());
+		publisherservice.setPublisherIfRecordExist(book.getPublisher());
 		
 		publisherservice.save(book.getPublisher());
 		

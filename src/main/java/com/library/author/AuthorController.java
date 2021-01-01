@@ -30,7 +30,7 @@ public class AuthorController {
 	@PostMapping("/authors/add")
 	public String addAuthor(Author author) {
 		
-		service.getAuthorIfRecordExist(author);
+		service.setAuthorIfRecordExist(author);
 		service.save(author);
 		return "redirect:/authors";
 	}
