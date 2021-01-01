@@ -17,4 +17,27 @@ git clone https://github.com/FYalcincosar/LibraryApplication-Spring.git
 ```sh
 mvn clean install
 ```
+### Create Scheme
+```sh
+create database library;
+```
+[Check out application.properties]()
+### Deploy the WAR to Tomcat
+Go to WAR location
+
+```sh
+cd .../LibraryExample/target
+```
+
+Copy the LibraryExample.war file and paste it inside the webapps folder of the Tomcat
+
+```sh
+sudo cp LibraryExample-1.0.war /opt/apache-tomcat-9/webapps
+```
+
+Start Tomcat
+
+```sh
+sudo /opt/apache-tomcat-9/bin/startup.sh
+```
 
