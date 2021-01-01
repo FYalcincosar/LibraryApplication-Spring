@@ -17,7 +17,7 @@ git clone https://github.com/FYalcincosar/LibraryApplication-Spring.git
 ```sh
 mvn clean install
 ```
-### Create Scheme
+### Create Database
 ```sh
 create database library;
 ```
