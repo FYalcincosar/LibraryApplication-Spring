@@ -21,7 +21,7 @@ mvn clean install
 ```sh
 create database library;
 ```
-[Check out application.properties]()
+[Check out application.properties](https://github.com/FYalcincosar/LibraryApplication-Spring/blob/main/src/main/resources/application.properties)
 ### Deploy the WAR to Tomcat
 Go to WAR location
 
