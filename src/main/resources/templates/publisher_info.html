@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Publisher Info</title>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+	<div th:replace="fragments ::html_navbar"> </div>
+	<div class="container text-center">
+		<div><h1>Publisher Info</h1></div>
+			<form th:object="${publisher}" style="max-width: 600px; margin:0 auto;">
+			<div class="m-3">
+				<div class="form-group row">
+				 	<label class="col-form-label col-sm-4">Publisher Name: </label>
+				 	<div class="col-sm-7">
+					<label th:text="*{publisherName}"></label>
+				</div>	
+				</div>
+				<div class="form-group row">
+				 	<label class="col-form-label col-sm-4">Description: </label>
+				 	<div class="col-sm-7">
+					<label th:text="*{description}"></label>
+					
+				</div>
+				</div>
+				
+			</div>
+			<div class="text-center">
+					<a th:href="@{/publishers}" class="btn btn-primary" role="button">Back</a>
+					<a th:href="@{'/publishers/edit/'+${publisher.id}}" class="btn btn-info" role="button">Edit</a>
+					<a th:href="@{'/publishers/delete/'+${publisher.id}}" class="btn btn-danger" role="button">Delete</a>
+				</div>
+			</form>
+	</div>
+</body>
+
+</html>

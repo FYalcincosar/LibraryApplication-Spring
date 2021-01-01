@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Add Book</title>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+	<div th:replace="fragments ::html_navbar"> </div>
+	<div class="container text-center">
+		<div th:if="${book.id==null}"><h1>Add Book</h1></div>
+		<div th:unless="${book.id==null}"><h1>Edit Book</h1></div>
+			<form th:action="@{/books/add}" th:object="${book}" method="post" style="max-width: 600px; margin:0 auto;">
+			<input type="hidden" th:field="*{id}" th:value=${book.id}/>
+			<div class="m-3">
+				<div class="form-group row">
+				 	<label class="col-form-label col-sm-4">Book Title: </label>
+				 	<div class="col-sm-7">
+					<input type="text" th:field="*{bookTitle}" class="form-control" required />
+				</div>	
+				</div>
+				<div class="form-group row">
+				 	<label class="col-form-label col-sm-4">Book Subname: </label>
+				 	<div class="col-sm-7">
+					<input type="text" th:field="*{bookSubname}" class="form-control"/>
+				</div>
+				</div>
+				<div class="form-group row">
+				 	<label class="col-form-label col-sm-4">Book Series Name: </label>
+				 	<div class="col-sm-7">
+					<input type="text" th:field="*{bookSeriesName}" class="form-control"/>
+				</div>
+				</div>
+					<div class="form-group row">
+				 	<label class="col-form-label col-sm-4">Author: </label>
+				 	<div class="col-sm-7">
+					<input type="text" th:field="*{author.authorName}" class="form-control" required/>
+				</div>
+				</div>
+					<div class="form-group row">
+				 	<label class="col-form-label col-sm-4">Publisher: </label>
+				 	<div class="col-sm-7">
+					<input type="text" th:field="*{publisher.publisherName}" class="form-control" required/>
+				</div>
+				</div>
+				<div class="form-group row">
+				 	<label class="col-form-label col-sm-4">ISBN: </label>
+				 	<div class="col-sm-7">
+					<input type="number" th:field="*{isbn}" class="form-control" required/>
+				</div>
+				</div>
+				<div class="form-group row">
+				 	<label class="col-form-label col-sm-4">Description: </label>
+				 	<div class="col-sm-7">
+					<textarea th:field="*{description}" class="form-control"></textarea>
+				</div>
+				</div>
+				<div th:if="${book.id==null}"class="text-center">
+					<button type="submit" class="btn btn-primary">Add</button>
+					<a th:href="@{/books}" class="btn btn-secondary" role="button">Cancel</a>
+				</div>
+				<div th:unless="${book.id==null}"class="text-center">
+					<button type="submit" class="btn btn-primary">Confirm</button>
+					<a th:href="@{/books}" class="btn btn-secondary" role="button">Cancel</a>
+				</div>
+			</div>
+			</form>
+	</div>
+</body>
+
+</html>

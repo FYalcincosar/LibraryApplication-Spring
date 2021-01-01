@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Book Info</title>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+
+	<div th:replace="fragments ::html_navbar"> </div>
+	
+	<div class="container text-center">
+		<div><h1>Book Info</h1></div>
+			<form th:object="${book}" style="max-width: 600px; margin:0 auto;">
+			<div class="m-3">
+				<div class="form-group row">
+				 	<label class="col-form-label col-sm-4">Book ID: </label>
+				 	<div class="col-sm-7">
+					<label th:text="*{id}"></label>
+				</div>	
+				</div>
+				<div class="form-group row">
+				 	<label class="col-form-label col-sm-4">Book Title: </label>
+				 	<div class="col-sm-7">
+					<label th:text="*{bookTitle}"></label>
+				</div>	
+				</div>
+				<div class="form-group row">
+				 	<label class="col-form-label col-sm-4">Book Subname: </label>
+				 	<div class="col-sm-7">
+					<label th:text="*{bookSubname}"></label>
+					
+				</div>
+				</div>
+				<div class="form-group row">
+				 	<label class="col-form-label col-sm-4">Book Series Name: </label>
+				 	<div class="col-sm-7">
+					<label th:text="*{bookSeriesName}"></label>
+					
+				</div>
+				</div>
+				
+				<div class="form-group row">
+				 	<label class="col-form-label col-sm-4">Author: </label>
+				 	<div class="col-sm-7">
+					<label th:text="*{author.authorName}"></label>
+					
+				</div>
+				</div>
+				<div class="form-group row">
+				 	<label class="col-form-label col-sm-4">Publisher: </label>
+				 	<div class="col-sm-7">
+					<label th:text="*{publisher.publisherName}"></label>
+					
+				</div>
+				</div>
+				<div class="form-group row">
+				 	<label class="col-form-label col-sm-4">ISBN: </label>
+				 	<div class="col-sm-7">
+					<label th:text="*{isbn}"></label>
+					
+				</div>
+				</div>
+				<div class="form-group row">
+				 	<label class="col-form-label col-sm-4">Description: </label>
+				 	<div class="col-sm-7">
+					<label th:text="*{description}"></label>
+					
+				</div>
+				</div>
+				
+			</div>
+			
+			<div class="text-center">
+					<a th:href="@{/books}" class="btn btn-primary" role="button">Back</a>
+					
+					<a th:href="@{'/books/edit/'+${book.id}}" class="btn btn-info" role="button">Edit</a>
+					
+					<a th:href="@{'/books/delete/'+${book.id}}" class="btn btn-danger" role="button">Delete</a>
+					
+				</div>
+
+			</form>
+			
+	</div>
+	
+</body>
+
+</html>

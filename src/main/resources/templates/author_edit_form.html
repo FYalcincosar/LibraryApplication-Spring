@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Edit Author</title>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div th:replace="fragments ::html_navbar"> </div>
+	<div class="container text-center">
+		<div><h1>Edit Author</h1></div>
+			<form th:action="@{/authors/update}" th:object="${author}" method="post" style="max-width: 600px; margin:0 auto;">
+			<input type="hidden" th:field="*{id}" th:value=${author.id}/>
+			<div class="m-3">
+				<div class="form-group row">
+				 	<label class="col-form-label col-sm-4">Author Name: </label>
+				 	<div class="col-sm-7">
+					<input type="text" th:field="*{authorName}" class="form-control" required />
+				</div>	
+				</div>
+				<div class="form-group row">
+				 	<label class="col-form-label col-sm-4">Description: </label>
+				 	<div class="col-sm-7">
+					<textarea th:field="*{description}" class="form-control"></textarea>
+				</div>
+				</div>
+				<div class="text-center">
+					<button type="submit" class="btn btn-primary">Confirm</button>
+					<a th:href="@{/authors}" class="btn btn-secondary" role="button">Cancel</a>
+				</div>
+			</div>
+			</form>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Publishers</title>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+	<div th:replace="fragments ::html_navbar"> </div>
+	<div class="container text-center">
+		<div><h1>Publishers</h1></div>
+		<div>
+			<table class="table table-striped table-hover table-bordered ">
+				<thead class="thead-dark">
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Description</th>
+					<th>Options</th>
+				</tr>
+				</thead>
+				<tbody class="tbody-light">
+					<th:block th:each="publisher: ${listPublishers}">
+					<tr>
+						<td>[[${publisher.id}]]</td>
+						<td ><a th:href="@{'/publishers/info/'+${publisher.id}}">[[${publisher.publisherName}]]</a></td>
+						<td>[[${publisher.description}]]</td>
+						<td>
+							<a th:href="@{'/publishers/edit/'+${publisher.id}}">Edit</a>
+							&nbsp;|
+							<a th:href="@{'/publishers/delete/'+${publisher.id}}">Delete</a>
+						 </td>
+					</tr>
+					</th:block>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+
+</html>

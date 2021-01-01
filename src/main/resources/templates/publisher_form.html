@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Add Publisher</title>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+	<div th:replace="fragments ::html_navbar"> </div>
+	<div class="container text-center">
+		<div><h1>Add Publisher</h1></div>
+			<form th:action="@{/publishers/add}" th:object="${publisher}" method="post" style="max-width: 600px; margin:0 auto;">
+			<div class="m-3">
+				<div class="form-group row">
+				 	<label class="col-form-label col-sm-4">Publisher Name: </label>
+				 	<div class="col-sm-7">
+					<input type="text" th:field="*{publisherName}" class="form-control" required />
+				</div>	
+				</div>
+				<div class="form-group row">
+				 	<label class="col-form-label col-sm-4">Description: </label>
+				 	<div class="col-sm-7">
+					<textarea th:field="*{description}" class="form-control"></textarea>
+				</div>
+				</div>
+				<div class="text-center">
+					<button type="submit" class="btn btn-primary">Add</button>
+					<a th:href="@{/publishers}" class="btn btn-secondary" role="button">Cancel</a>
+				</div>
+			</div>
+			</form>
+	</div>
+</body>
+
+</html>
