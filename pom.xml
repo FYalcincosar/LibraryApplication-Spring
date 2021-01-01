@@ -11,6 +11,7 @@
 	<groupId>com.example</groupId>
 	<artifactId>LibraryExample</artifactId>
 	<version>1.0</version>
+	<packaging>war</packaging>  
 	<name>LibraryExample</name>
 	<description>Case Study Project</description>
 
@@ -42,6 +43,7 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
+			 <version>8.0.11</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -57,7 +59,12 @@
 			<groupId>org.webjars</groupId>
 			<artifactId>webjars-locator-core</artifactId>
 		</dependency>
-   
+		<!-- 01 -->
+		<dependency>  
+			<groupId>org.springframework.boot</groupId>  
+			<artifactId>spring-boot-starter-tomcat</artifactId>  
+			<scope>provided</scope>  
+			</dependency>    
 	</dependencies>
 	
 	<build>
@@ -70,3 +77,4 @@
 	</build>
 
 </project>
+
